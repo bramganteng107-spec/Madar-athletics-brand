@@ -1,2 +1,2 @@
 # Madar-athletics-brand
-another fictional brand with which i made js, first project will js (still fully frontend)
+another fictional brand, this time with js, first full-fledged project with js (still fully frontend)
