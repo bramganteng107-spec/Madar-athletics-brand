@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madar Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Basic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="storeHtml">
+    <div class="realBody">
+        <section class="ultraDock">
+            <section class="dock">
+                <a href="">Full store</a>
+                <button id="themeBtn">Turn dark</button>
+                <a href="#trueH1">To top</a>
+            </section>
+            <div id="hamburgerNav">
+                <button id="hamburgerBtn">⚙️</button>
+            </div>
+        </section>
+
+        <section class="navigation">
+            <div class="navigation-bar">
+                <a href="index.html#aboutSection">Home</a>
+                <a href="store.html">Store</a>
+                <a href="#contactSection">Contact</a>
+            </div>
+        </section>
+
+        <main>
+            <h1 id="trueH1">Madar Full Store</h1>
+            <div class="configureDiv">
+                <label for="searchBar" placeholder="Search product...">Search item</label>
+                <input type="text" id="searchBar">
+                <div class="moreOptionsFlex">
+                    <button id="filterToggleBtn">Turn on filters</button>
+                    <button id="layoutToggleBtn">Turn grid</button>
+                </div>
+                <div class="selectFlex">
+                    <select id="sortSelect">
+                        <option>Sort by</option>
+                        <option>price</option>
+                        <option>stock</option>
+                        <option>name</option>
+                    </select>
+                    <select id="orderSelect">
+                        <option>ascending</option>
+                        <option>descending</option>
+                    </select>
+                    <select id="categorySelect">
+                        <option>All categories</option>
+                        <option>swimming</option>
+                        <option>running</option>
+                        <option>fitness</option>
+                        <option>soccer</option>
+                        <option>accessories</option>
+                    </select>
+                </div>
+            </div>
+            <section class="store"></section>
+            <div class="pagination">
+            </div>
+        </main>
+
+        <footer id="contactSection">
+            <h2>Contact Us</h2>
+            <section class="footer-grid">
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+                <a href="https://youtube.com" target="_blank">YouTube</a>
+                <a href="https://tiktok.com" target="_blank">TikTok</a>
+                <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                <a href="">About</a>
+                <a href="">Store</a>
+                <a href="">Guide</a>
+                <a href="">Reviews</a>
+                <a href="">Contact</a>
+            </section>
+        </footer>
+    </div>
+
+    <script src="store.js"></script>
+</body>
+</html>

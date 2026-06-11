@@ -1,0 +1,902 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 125%;
+    scroll-behavior: smooth;
+}
+
+html[data-theme="dark"] {
+    --body-color: rgb(45, 45, 45);
+    --text-color: white;
+    --bgItem-color: rgb(222, 222, 222);
+    --textItem-color: black;
+}
+
+@view-transition {
+    navigation: auto;
+}
+
+:root {
+    --body-color: rgb(208, 208, 208);
+    --text-color: black;
+    --bgItem-color: rgb(20, 20, 20);
+    --textItem-color: white;
+}
+
+body {
+    -webkit-font-smoothing: antialiased; 
+    background: var(--body-color);
+    color: var(--text-color);
+    font-family: Basic;
+    transition: ease-in-out 0.2s;
+}
+
+input, button, textarea, p, a {
+    font: inherit;
+    color: inherit;
+    font-size: clamp(0.75rem, 2.5cqw, 2.5rem);
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 3.75cqw, 5rem);
+
+    animation: slideRight both;
+    animation-timeline: view();
+    animation-range: entry 100% entry 400%;
+}
+
+h3 {
+    font-size: clamp(1rem, 3cqw, 3.5rem);
+}
+
+section {
+    container-type: inline-size;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8rem;
+
+    animation: fadeUp 1s ease both;
+    transition: ease-in-out 0.2s;
+}
+
+h1 {
+    text-align: center;
+}
+
+/* Start of the actual CSS here! */
+
+.realBody {
+    max-width: 1440px;
+    margin-inline: auto;
+    container-type: inline-size;
+}
+
+.hero {
+    height: 100dvh;
+    height: 100vh;
+    max-height: 960px;
+    overflow: hidden;
+    margin-block: 0;
+
+    background-image: url("images/real-aydar-bg.avif");
+    background-size: cover;
+    background-position: center;
+
+    align-content: center;
+    position: relative;
+    color: white;
+
+    animation: none;
+}
+
+.hero h1 {
+    font-size: clamp(3.75rem, 6cqw, 8rem);
+    animation: fadeUp 1.5s ease-in-out forwards;
+}
+
+.hero p {
+    animation: fadeUp 1.5s ease-in-out 0.3s forwards; /* 0.3s delay */
+    opacity: 0;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(360px) scale(0.35);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes showUp {
+    from {
+        opacity: 0.125;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0.1;
+        transform: translateX(-400px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* for closing only!! */
+@keyframes fadeDown {
+    from {
+        opacity: 1;
+        transform: none;
+    }
+    to {
+        opacity: 0;
+        transform: translateY(360px) scale(0.35);
+    }
+}
+
+.navigation {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    animation: none;
+    margin-bottom: 3rem;
+}
+
+.navigation-bar {
+    background: rgb(83, 83, 255);
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-block: 0.5rem;
+
+    overflow: auto;
+}
+
+.navigation-bar a {
+    display: inline-block;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: ease-in-out 0.2s;
+}
+
+.navigation-bar a:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.navigation {
+    animation: none;
+}
+
+.about {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about p {
+    animation: fadeUp both;
+    animation-timeline: view();
+    animation-range: entry 90% entry 350%;
+}
+
+.description, .store, .reviews, 
+.reviews-flex,
+.faq, footer{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.description-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+
+.description-grid div :is(h3, p) {
+    animation: fadeUp both;
+    animation-timeline: view();
+    animation-range: entry 50% entry 350%;
+}
+
+.description-grid div {
+    padding: 2rem;
+    height: 100dvh;
+    height: 100vh;
+    max-height: 960px;
+    align-content: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.description-grid-imgDiv {
+    padding: 0 !important;
+    animation: showUp both;
+    animation-timeline: view();
+    animation-range: entry 15% entry 140%;
+}
+
+.store-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 20cqw);
+    justify-content: center;
+    gap: 1rem;
+}
+
+.store-grid-card {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: black;
+    container-type: inline-size;
+    border-radius: 0.5rem;
+    overflow: hidden;
+
+    animation: fadeUp both;
+    animation-timeline: view();
+    animation-range: entry 15% entry 150%;
+}
+
+.sgc-textDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    padding-inline: 1.5rem;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.75);
+    container-type: inline-size;
+    transition: ease-in-out 0.2s;
+}
+
+.store-grid-card a {
+    display: grid;
+    height: 100%;
+}
+
+.store-grid-card img, .sgc-textDiv {
+    grid-area: 1/1;
+}
+
+.store-grid-card:hover .sgc-textDiv {
+    opacity: 1;
+}
+
+#storeSectionLink {
+    width: fit-content;
+    margin-inline: auto;
+    background: rgb(83, 83, 255);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+
+    animation: fadeUp both;
+    animation-timeline: view();
+    animation-range: entry 15% entry 250%;
+    transition: ease-in-out 0.2s;
+}
+
+#storeSectionLink:hover {
+    background: rgba(0, 0, 207, 0.9);
+}
+
+.reviews {
+    margin-bottom: 12rem;
+    animation: none;
+}
+
+.faq {
+    margin-bottom: 0;
+}
+
+.reviews-flex {
+    gap: 0;
+    width: 100%;
+}
+
+.reviews-flex div {
+    width: 100%;
+    height: 100dvh;
+    height: 100vh;
+    max-height: 960px;
+    padding-inline: 4rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+
+    font-size: clamp(2rem, 6cqw, 7rem);
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.reviews-flex div :is(h3, p) {
+    font-size: clamp(0.75rem, 3.5cqw, 3rem);
+    color: white;
+
+    animation: fadeUp both;
+    animation-timeline: view();
+    animation-range: entry 80% entry 350%;
+}
+
+.reviews-flex div:nth-child(1) {background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(images/fencingSport.jpg);}
+.reviews-flex div:nth-child(2) {background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(images/startingBlock.jpg);}
+.reviews-flex div:nth-child(3) {background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(images/runTogether.jpg);}
+
+.faq-flex {
+    display: flex;
+    flex-direction: column;
+    container-type: inline-size;
+    padding-inline: 5rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 1)), url("images/dive-faq(1).jpg");
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+.faq-flex summary {
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: ease-in-out 0.2s;
+}
+
+.faq-flex summary:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+details {
+    padding-block: 1rem;
+    width: 70%;
+    margin-inline: auto;
+
+    animation: slideRight both;
+    animation-timeline: view();
+    animation-range: entry 75% entry 200%;
+}
+
+details p {
+    font-size: clamp(0.75rem, 1.5vw, 2.5rem);
+}
+
+summary {
+    font-size: clamp(0.75rem, 2.5vw, 2.5rem);
+    margin: 1rem;
+    cursor: pointer;
+}
+
+footer {
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+    padding-block: 2rem 5rem;
+    background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.55)), url("images/volley-review.jpg");
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+
+.footer-grid {
+    width: 55%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 1rem;
+    column-gap: 0.5rem;
+
+    margin-bottom: 0;
+    margin-inline: auto;
+    padding-bottom: 3rem;
+}
+
+.footer-grid a {
+    border-radius: 0.5rem;
+    height: fit-content;
+    width: fit-content;
+    padding: 0.5rem;
+    transition: ease-in-out 0.2s;
+}
+
+.footer-grid a:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.ultraDock {
+    width: 15vw;
+    height: fit-content;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    position: fixed;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 11;
+}
+
+#hamburgerNav {
+    align-self: flex-start;
+}
+#hamburgerBtn {
+    font-size: clamp(2rem, 5vw, 6rem);
+    aspect-ratio: 1/1 !important;
+    border-radius: 1rem;
+}
+
+.ultraDock * {
+    margin: 0;
+    padding: 0;
+}
+
+.ultraDock :is(button, a) {
+    display: inline-block;
+    font-size: clamp(.9rem, 2.5vw, 2rem);
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+.ultraDock :is(button, a):active {
+    background: rgb(92, 80, 80);
+    color: white;
+    border: 2px solid white;
+}
+
+.dock {
+    display: none;
+    flex-direction: column;
+    gap: .5rem;
+    animation-name: none;
+}
+
+.dock.open {
+    display: flex;
+}
+
+/* fullStore html starts here */
+
+.storeHtml h1 {
+    margin-bottom: 4rem;
+    font-size: clamp(3rem, 7vw, 5rem);
+}
+
+.storeHtml .store {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.storeHtml .store:not([data-layout="grid"]) div {
+    animation: slideRight both;
+    animation-timeline: view();
+    animation-range: entry 20% entry 200%;
+
+    display: flex;
+    align-items: center;
+    width: 75%;
+    height: clamp(3rem, 10vw, 6rem);
+    background: var(--bgItem-color);
+    color: var(--textItem-color);
+    border-radius: .5rem;
+    gap: .25rem;
+}
+
+.storeHtml .store:not([data-layout="grid"]) div img {
+    background: grey;
+    width: 30%;
+    object-fit: cover;
+    border: 2px solid var(--textItem-color);
+    border-radius: .5rem;
+}
+
+.storeHtml .store[data-layout="grid"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, clamp(7.5rem, 20vw, 12rem));
+    column-gap: 0 !important;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+}
+
+.storeHtml .store[data-layout="grid"] div {
+    animation: slideRight both;
+    animation-timeline: view();
+    animation-range: entry 20% entry 150%;
+    width: 75%;
+    height: fit-content;
+    border: 2px solid black;
+    border-radius: .5rem;
+    aspect-ratio: 1/1;
+}
+
+.storeHtml .store[data-layout="grid"] div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    border-radius: .5rem .5rem 0 0 ;
+    border-bottom: 2px black solid;
+}
+
+.storeHtml .store[data-layout="grid"] :is(.textDiv, .checkoutDiv) {
+    padding-block: .35rem;
+    height: fit-content;
+    width: 100% !important;
+    aspect-ratio: auto !important;
+    border: none;
+    border-radius: 0;
+    background: var(--bgItem-color);
+    color: var(--textItem-color);
+}
+
+.storeHtml .store[data-layout="grid"] .checkoutDiv {
+    border-radius: 0 0 .5rem .5rem;
+}
+
+.storeHtml .store[data-layout="grid"] :is(.checkoutDiv, .textDiv) :is(h2, p) {
+    font-size: clamp(0.65rem, 1.35vw, 2rem);
+}
+
+.storeHtml .store[data-layout="grid"] .textDiv p {
+    display: none;
+}
+
+.storeHtml .store div * {
+    animation: none !important;
+}
+
+.storeHtml .store div h2 {
+    font-size: clamp(0.4rem, 1.75vw, 1.25rem);
+    animation: none;
+}
+
+.storeHtml .store div p {
+    font-size: clamp(0.3rem, 1.25vw, 1.05rem);
+}
+
+.checkoutDiv :is(p, a) {
+    font-size: clamp(.6rem, 100vw, 1rem);
+}
+
+.storeHtml :is(.textDiv, .checkoutDiv) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 0 !important;
+    gap: .125rem;
+
+    flex: 1;
+    height: 100%;
+}
+
+.storeHtml .checkoutDiv {
+    width: fit-content !important;
+    margin: 0;
+}
+
+.storeHtml .store div a {
+    background: rgb(83, 83, 255);
+    border-radius: .5rem;
+    padding: .125rem .5rem;
+    transition: ease-in-out 0.2s;
+}
+
+.storeHtml .store div a:hover, .storeHtml .store div a:active{
+    background: rgba(0, 0, 171, 0.9);
+}
+
+.storeHtml #contactSection h2 {
+    animation: none;
+}
+
+.storeHtml .configureDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 75%;
+    margin-bottom: 2rem;
+    margin-inline: auto;
+}
+
+.storeHtml .configureDiv label {
+    font-size: clamp(2rem, 10vw, 3rem);
+}
+
+.storeHtml #searchBar {
+    border-radius: .5rem;
+    padding: .5rem;
+    font-size: clamp(1rem, 6vw, 1.5rem);
+    border: 2px solid black;
+    color: black;
+}
+
+.storeHtml .configureDiv select {
+    appearance: base-select;
+    border-radius: .25rem;
+    padding: .25rem;
+    background: var(--bgItem-color);
+    color: var(--textItem-color);
+    cursor: pointer;
+    font-size: clamp(.65rem, 2.5vw, 1rem);
+}
+
+::picker(select) {
+    appearance: base-select;
+    height: 4rem;
+    overflow: auto;
+    background: white;
+}
+
+.storeHtml .configureDiv .selectFlex {
+    display: none;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.storeHtml .configureDiv .selectFlex.open {
+    display: flex;
+}
+
+.storeHtml .moreOptionsFlex {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.storeHtml :is(#layoutToggleBtn, #filterToggleBtn) {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    padding: .25rem .125rem;
+    border-radius: .25rem;
+    border: 1px solid black;
+    color: black;
+    transition: ease-in-out 0.2s;
+    white-space: nowrap;
+}
+
+.storeHtml :is(#layoutToggleBtn, #filterToggleBtn):active {
+    background: rgb(92, 80, 80);
+    color: white;
+    border: 2px solid white;
+}
+
+.storeHtml .pagination {
+    display: flex;
+    justify-content: center;
+    gap: .35rem;
+    margin-bottom: 2rem;
+}
+
+.storeHtml .pagination * {
+    display: inline-block;
+    width: clamp(1rem, 10%, 3rem);
+    aspect-ratio: 1/1;
+    text-align: center;
+    border-radius: .5rem;
+    align-content: center;
+}
+
+.storeHtml .pagination button {
+    transition: ease-in-out .2s;
+}
+
+.storeHtml .pagination button:not(.disabled):active {
+    background: rgb(48, 45, 45);
+    border: 2px solid white;
+    color: white;
+}
+
+.storeHtml .pagination button.disabled {
+    cursor: auto;
+}
+
+.storeHtml .pagination .pageBtn.open {
+    background: rgb(30, 30, 210) !important;
+    color: white !important;
+}
+
+.storeHtml .pagination button {
+    color: black;
+}
+
+.storeHtml :is(#nextPageBtn, #prevPageBtn) {
+    margin-inline: .5rem;
+}
+
+/* productHtml starts here */
+
+.productHtml {
+    min-height: 100vh;
+} 
+
+.productHtml .product {
+    margin-bottom: 3rem;
+}
+
+.productHtml h1 {
+    font-size: clamp(2rem, 6cqw, 8rem);
+    margin-bottom: 3rem;
+}
+
+.productHtml img {
+    background: white;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 1rem;
+}
+
+.productHtml .product :is(button, a) {
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    background: rgb(88, 88, 255);
+    color: white;
+    border: white solid 2px;
+    border-radius: 1rem;
+    padding: .25rem .75rem;
+    transition: ease-in-out .2s;
+    width: fit-content;
+}
+
+.productHtml .product a {
+    font-size: clamp(1rem, 3vw, 2.5rem);
+    background: var(--bgItem-color);
+    color: var(--textItem-color);
+    border: none;
+}
+
+.productHtml .product a:active {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.productHtml .product button:active {
+    background: rgba(0, 0, 175, 0.6);
+}
+
+.productHtml .productFlex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.productHtml .productFlex2 {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.productHtml .productFlex2 :is(p, h2) {
+    padding-inline: 3rem;
+
+    animation: slideRight both;
+    animation-timeline: view();
+    animation-range: entry 20% entry 250%;
+}
+
+
+@media (hover: hover) {
+    .ultraDock :is(button, a):hover, .storeHtml :is(#layoutToggleBtn, #filterToggleBtn):hover, .storeHtml .pagination button:not(.disabled):hover {
+        background: rgb(92, 80, 80);
+        color: white;
+        border: 2px solid white;
+    }
+    .productHtml .product button:hover {
+        background: rgba(0, 0, 175, 0.7);
+    }
+    .productHtml .product a:hover {
+        background: rgba(0, 0, 0, 0.6);
+    }
+}
+
+@media (width <= 800px) {
+    .reviews-flex div {
+        background-attachment: scroll;
+    }
+    .reviews-flex div:nth-child(1) {background-position: right;}
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        width: 90%;
+    }
+    .footer-grid a:nth-child(6) {grid-area: 1/2;}
+    .footer-grid a:nth-child(7) {grid-area: 2/2;}
+    .footer-grid a:nth-child(9) {grid-area: 3/2;} 
+    .footer-grid a {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .faq-flex {
+        padding-inline: 1rem;
+    }
+
+    .navigation-bar {
+        padding-inline: 1rem;
+    }
+
+    .description-grid {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .description-grid div {
+        height: 50vh;
+    }
+
+    .description-grid div:nth-child(3) {order: 4;}
+    .description-grid div:nth-child(3) {order: 3;}
+    .description-grid div:nth-child(5) {order: 5;}
+    .description-grid div:nth-child(6) {order: 6;}
+
+    .store-grid {
+        grid-template-columns: repeat(2, 40cqw);
+        gap: 0.5rem;
+    }
+
+    .store-grid a {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sgc-textDiv {
+        opacity: 1;
+    }
+    .sgc-textDiv h3 {
+        font-size: clamp(0.6rem, 10cqw, 1.5rem);
+    }
+
+    .sgc-textDiv p {
+        display: none;
+    }
+
+    .store-grid img {
+        height: 65%;
+    }
+}
